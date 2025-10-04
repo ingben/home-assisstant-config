@@ -1,7 +1,7 @@
 modbus:
   - name: KSEM 
     type: tcp
-    host: die IP vom KSEM
+    host: 192.168.1.232
     port: 502
     sensors:
     - name: netzbezug_leistung_ksem
