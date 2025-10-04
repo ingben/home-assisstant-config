@@ -1,0 +1,55 @@
+modbus:
+  - name: KSEM 
+    type: tcp
+    host: die IP vom KSEM
+    port: 502
+    sensors:
+    - name: netzbezug_leistung_ksem
+      slave: 1
+      device_class: power
+      state_class: measurement
+      unit_of_measurement: W
+      scale: 0.1
+      address: 0
+      scan_interval: 10 # Defines the update interval of the sensor in seconds.
+      slave_count: 2 # Anzahl zu lesenden Register
+      input_type: holding
+      data_type: uint32
+
+      - name: netzeinspeisung_leistung_ksem
+      slave: 1
+      device_class: power
+      state_class: measurement
+      unit_of_measurement: W
+      scale: 0.1
+      address: 2
+      scan_interval: 10 # Defines the update interval of the sensor in seconds.
+      slave_count: 2 # Anzahl zu lesenden Register
+      input_type: holding
+      data_type: uint32
+
+      - name: netzbezug_energie_ksem
+      slave: 1
+      scale: 0.0001 # wegen kWh (0.1/1000)
+      precision: 3
+      address: 512
+      scan_interval: 60 # Defines the update interval of the sensor in seconds.
+      slave_count: 4 # Anzahl zu lesenden Register
+      input_type: holding
+      data_type: uint64
+      device_class: energy
+      state_class: total_increasing
+      unit_of_measurement: kWh
+
+      - name: netzeinspeisung_energie_ksem
+      slave: 1
+      scale: 0.0001 # wegen kWh (0.1/1000)
+      precision: 3
+      address: 516
+      scan_interval: 60 # Defines the update interval of the sensor in seconds.
+      slave_count: 4 # Anzahl zu lesenden Register
+      input_type: holding
+      data_type: uint64
+      device_class: energy
+      state_class: total_increasing
+      unit_of_measurement: kWh
