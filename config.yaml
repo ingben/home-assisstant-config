@@ -16,7 +16,7 @@ modbus:
       input_type: holding
       data_type: uint32
 
-      - name: netzeinspeisung_leistung_ksem
+    - name: netzeinspeisung_leistung_ksem
       slave: 1
       device_class: power
       state_class: measurement
@@ -28,7 +28,7 @@ modbus:
       input_type: holding
       data_type: uint32
 
-      - name: netzbezug_energie_ksem
+    - name: netzbezug_energie_ksem
       slave: 1
       scale: 0.0001 # wegen kWh (0.1/1000)
       precision: 3
@@ -41,7 +41,7 @@ modbus:
       state_class: total_increasing
       unit_of_measurement: kWh
 
-      - name: netzeinspeisung_energie_ksem
+    - name: netzeinspeisung_energie_ksem
       slave: 1
       scale: 0.0001 # wegen kWh (0.1/1000)
       precision: 3
